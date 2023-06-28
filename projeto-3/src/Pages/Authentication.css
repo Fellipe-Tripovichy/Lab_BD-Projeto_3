@@ -1,0 +1,16 @@
+.form-content {
+    background: #363557;
+    padding: 32px;
+    border-radius: 8px;
+    max-width: 800px;
+    min-width: 600px;
+}
+
+.AllContainer{
+    background-color: #1E1D35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vw;
+}

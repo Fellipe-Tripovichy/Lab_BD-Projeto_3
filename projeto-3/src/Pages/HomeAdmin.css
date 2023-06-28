@@ -1,0 +1,53 @@
+.App {
+  background-color: #1E1D35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vw;
+}
+
+.AllContainer{
+  width: 100%;
+  background-color: #1E1D35;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vw;
+}
+
+.ScreenContainer{
+  padding: 96px;
+  height: 100%;
+  max-width: 1400px;
+  min-width: 1120px;
+}
+
+.TitleContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+}
+
+.ButtonsContainer{
+  display: flex;
+  gap: 32px;
+}
+
+.Division{
+  height: 1px;
+  background-color: #282748;
+}
+
+.ContentContainer{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.CardContainer{
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}

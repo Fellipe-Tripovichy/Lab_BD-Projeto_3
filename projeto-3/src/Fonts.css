@@ -1,0 +1,44 @@
+.display{
+    font-family: Montserrat, sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    line-height: 120%;
+    margin:"0px";
+}
+
+.h1{
+    font-family: Montserrat, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    line-height: 120%;
+    margin:"0px";
+}
+
+.h2{
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    line-height: 120%;
+    margin:"0px";
+}
+
+.h3{
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    line-height: 120%;
+    margin:"0px";
+}
+
+.body{
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    line-height: 120%;
+    margin:"0px";
+}
