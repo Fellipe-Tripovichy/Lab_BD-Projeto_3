@@ -3,12 +3,13 @@ import './CloseAirports.css';
 import '../Fonts.css';
 import '../Components/InputText.css';
 
-import instance from '../Services/api.js';
+import createAxiosInstance from '../Services/apiLogged.js';
 
 import Header from '../Components/Header.js';
 import LinkButton from '../Components/LinkButton.js';
 import Table from '../Components/Table.js';
 import Button from '../Components/Button.js';
+import getToken from '../Services/token.js';
 
 
 function CloseAirports() {
@@ -23,6 +24,8 @@ function CloseAirports() {
         {label: "Tipo", dataKey: "tipo"},
     ];
     
+    const token = getToken();
+    const instance = createAxiosInstance(token);
     
     const [cityName, setCityName] = useState('');
 

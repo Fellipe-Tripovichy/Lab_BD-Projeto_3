@@ -30,9 +30,12 @@ function HomeConstructor() {
   const instance = createAxiosInstance(token);
 
   const [victoriesCount, setVictoriesCount] = useState(null);
+  const [yearBegin, setYearBegin] = useState(null);
+  const [yearLast, setYearLast] = useState(null);
 
   useEffect(() => {
     fetchVictoriesCount();
+    fetchYearsData();
   }, []);
 
   const fetchVictoriesCount = async () => {
@@ -47,7 +50,20 @@ function HomeConstructor() {
       console.log('Error:', error);
     }
   };
-  
+
+  const fetchYearsData = async () => {
+    try {
+      const response = await instance.get('/driver/historic',{
+        params: {
+            p_driverref: localStorage.getItem('nomePiloto'),
+        }
+    });
+        setYearBegin(response.data.firstyear);
+        setYearLast(response.data.lastyear);
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };  
     
   return (
     <div style={{backgroundColor:"#1E1D35"}}>
@@ -70,8 +86,8 @@ function HomeConstructor() {
             </div>
             <div className="CardContainer">
               <Card title="Vitórias" data={victoriesCount} buttonView="off"/>
-              <Card title="Primeiro ano de registro" data={"Null"} buttonView="off"/>
-              <Card title="ùltimo ano de registro" data={"Null"} buttonView="off" />
+              <Card title="Primeiro ano de registro" data={yearBegin} buttonView="off"/>
+              <Card title="ùltimo ano de registro" data={yearLast} buttonView="off" />
             </div>
           </div>
         </div>

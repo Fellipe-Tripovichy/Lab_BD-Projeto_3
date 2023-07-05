@@ -76,7 +76,7 @@ const Authentication = () => {
 
         return(
             <div className="AllContainer">
-                <Header />
+                <Header buttonState="off"/>
                 <div style={{paddingTop: "96px", height: "100%"}}>
                     <div className="form-content">
                         <h2 className="h2" style={{width: "300px"}}>Acessar</h2>

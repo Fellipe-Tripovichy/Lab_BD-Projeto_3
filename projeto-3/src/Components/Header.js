@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../Images/Logo.svg';
 import Button from './Button.js';
 
-function Header(){
+function Header(buttonState){
     const containerStyle = {
         backgroundColor: '#363557',
         display: "flex",
@@ -24,20 +24,23 @@ function Header(){
         top: '0.5vh',
     };
 
-    const containerMax = {
-        maxwidth: '1400px',
-        minwidth: '1120px'
-    }
-
-
-    return (
-        <div style={containerStyle}>
+    if(buttonState === 'off'){
+        return (
+            <div style={containerStyle}>
+                <img style={imageStyle} src={logo} alt="Logo da formula 1"/>
+            </div>
+        );  
+    } else {
+        return (
+            <div style={containerStyle}>
                 <img style={imageStyle} src={logo} alt="Logo da formula 1"/>
                 <div style={buttonStyle}>
                     <Button variable="default" text="Sair" onClick="/"/>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+
 }
 
 export default Header;
