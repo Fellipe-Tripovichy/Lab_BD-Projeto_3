@@ -1,6 +1,6 @@
 import React from "react";
 
-function InputText({type, placeholder, changeHandler, value}){
+function InputText({type, placeholder, changeHandler, value, id, name}){
     
     const inputTextStyle = {
         backgroundColor: "#454469",
@@ -18,7 +18,7 @@ function InputText({type, placeholder, changeHandler, value}){
     }
     
     return (
-        <input style={inputTextStyle} type={type} value={value} placeholder={placeholder} onChange={changeHandler}/>
+        <input style={inputTextStyle} id={id} type={type} name={name} value={value} placeholder={placeholder} onChange={changeHandler}/>
     );
 }
 

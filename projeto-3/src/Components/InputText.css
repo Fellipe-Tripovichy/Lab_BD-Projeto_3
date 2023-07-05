@@ -1,0 +1,14 @@
+.InputText{
+    background-Color: #454469;
+    font-Family: Montserrat, sans-serif;
+    font-Size: 16px;
+    font-Weight: 300;
+    color: #ffffff;
+    line-Height: 120%;
+    padding-Top: 12px;
+    padding-Bottom: 12px;
+    outline: none;
+    border: none;
+    border-Radius: 4px;
+    padding-left: 12px;
+}

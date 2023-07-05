@@ -1,0 +1,43 @@
+.App {
+    background-color: #1E1D35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    height: 100vw;
+  }
+  
+  .AllContainer{
+    width: 100%;
+    background-color: #1E1D35;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vw;
+  }
+  
+  .ScreenContainer{
+    padding: 96px;
+    height: 100%;
+    max-width: 1400px;
+    min-width: 1120px;
+  }
+  
+  .aContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .Division{
+    height: 1px;
+    background-color: #282748;
+  }
+  
+  .ContentContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }

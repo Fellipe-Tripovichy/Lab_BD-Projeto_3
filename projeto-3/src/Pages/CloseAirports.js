@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CloseAirports.css';
 import '../Fonts.css';
+import '../Components/InputText.css';
+
+import instance from '../Services/api.js';
 
 import Header from '../Components/Header.js';
 import LinkButton from '../Components/LinkButton.js';
 import Table from '../Components/Table.js';
-import InputText from '../Components/InputText.js';
 import Button from '../Components/Button.js';
 
 
@@ -19,13 +21,44 @@ function CloseAirports() {
         {label: "Cidade", dataKey: "cidade"},
         {label: "Distancia", dataKey: "distancia"},
         {label: "Tipo", dataKey: "tipo"},
-      ];
+    ];
     
-      const tableData = [
-        {numero: "Teste 1", estado: "Teste 1", iata: "Teste 1", aeroporto: "Teste 1", cidade: "Teste 1", distancia: "Teste 1", tipo: "Teste 1"},
-        {numero: "Teste 2", estado: "Teste 2", iata: "Teste 2", aeroporto: "Teste 2", cidade: "Teste 2", distancia: "Teste 2", tipo: "Teste 2"},
-        {numero: "Teste 3", estado: "Teste 3", iata: "Teste 3", aeroporto: "Teste 3", cidade: "Teste 3", distancia: "Teste 3", tipo: "Teste 3"},
-      ]
+    
+    const [cityName, setCityName] = useState('');
+
+    const handleChange = (e) => {
+      setCityName(e.target.value);
+      console.log(cityName)
+    }
+
+    const [formattedData, setFormattedData] = useState([]);
+
+    const formatTableData = (response) => {
+      const data = response.data.map(item => ({
+        numero: item.number,
+        estado: item.state,
+        iata: item.iata,
+        aeroporto: item.airport,
+        cidade: item.city,
+        distancia: item.distance,
+        tipo: item.type
+      }));
+      setFormattedData(data);
+    }
+
+    const handleSubmit = async (e) => {
+      try{
+        const response = await instance.get('/admin/airports-cities/',{
+          params: {
+            cityName: cityName,
+          }
+        });
+        formatTableData(response.data);
+      } catch (error) {
+        console.log('error', error);
+        throw error;
+      }
+    }
 
     return (
     <div>
@@ -33,17 +66,17 @@ function CloseAirports() {
       <div className="AllContainer">
         <div className="ScreenContainer">
           <div className="TitleContainer">
-            <LinkButton text="VOLTAR PARA OVERVIEW" path="/"/>
+            <LinkButton text="VOLTAR PARA OVERVIEW" path="/HomeAdmin"/>
             <div className="TitleAndSearch">
                 <h1 className="h1">Aeroportos próximos</h1>
                 <div className="SearchContainer">
-                    <InputText type="text" placeholder="Digite aqui"/>
-                    <Button variable="default" text="Pesquisar"/>
+                    <input className="InputText" type="text" name="cityName" onChange={handleChange}/>
+                    <Button variable="modal" text="Pesquisar" onClick={handleSubmit}/>
                 </div>
             </div>
           </div>
           <div className="ContentContainer">
-            <Table columns={columns} data={tableData}/>
+            <Table columns={columns} data={formattedData}/>
           </div>
         </div>
       </div>

@@ -3,18 +3,26 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
-import AuthService from './Services/auth-service';
-
 
 import HomeAdmin from './Pages/HomeAdmin';
 import ResultsAdmin from './Pages/ResultsAdmin';
 import CloseAirports from './Pages/CloseAirports';
 import Authentication from './Pages/Authentication';
+import HomeConstructor from './Pages/HomeConstructor';
+import HomeDriver from './Pages/HomeDriver';
+import ResultsConstructor from './Pages/ResultsConstructor';
+import DriversConstructor from './Pages/DriversConstructor';
+import ResultsDriver from './Pages/ResultsDriver';
+import HistoryDriver from './Pages/HistoryDriver';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Authentication/>
+  },
+  {
+    path: "/HomeAdmin",
+    element: <HomeAdmin/>
   },
   {
     path: "/ResultsAdmin",
@@ -23,6 +31,30 @@ const router = createBrowserRouter([
   {
     path: "/CloseAirports",
     element: <CloseAirports/>
+  },
+  {
+    path: "/HomeConstructor",
+    element: <HomeConstructor/>
+  },
+  {
+    path: "/HomeDriver",
+    element: <HomeDriver/>
+  },
+  {
+    path: "/ResultsConstructor",
+    element: <ResultsConstructor/>
+  },
+  {
+    path: "/DriversConstructor",
+    element: <DriversConstructor/>
+  },
+  {
+    path: "/ResultsDriver",
+    element: <ResultsDriver/>
+  },
+  {
+    path: "/HistoryDriver",
+    element: <HistoryDriver/>
   },
 ])
 

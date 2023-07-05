@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ResultsAdmin.css';
+import './ResultsConstructor.css';
 import '../Fonts.css';
 
 import createAxiosInstance from '../Services/apiLogged.js';
@@ -32,7 +32,11 @@ function ResultsAdmin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await instance.get('/admin/resultByStatus');
+        const response = await instance.get('/escuderia/statusAndQuantity',{
+            params: {
+                constructorId: localStorage.getItem('idEscuderia'),
+            }
+        });
         formatTableData(response);
         console.log(response);
       } catch (error) {
@@ -50,7 +54,7 @@ function ResultsAdmin() {
       <div className="AllContainer">
         <div className="ScreenContainer">
           <div className="TitleContainer">
-            <LinkButton text="VOLTAR PARA OVERVIEW" path="/HomeAdmin"/>
+            <LinkButton text="VOLTAR PARA OVERVIEW" path="/HomeConstructor"/>
             <h1 className="h1">Resultados</h1>
           </div>
           <div className="ContentContainer">

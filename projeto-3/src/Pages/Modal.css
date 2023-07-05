@@ -30,8 +30,11 @@ body.active-modal {
 }
 
 .close-modal {
+    background-color: #363557;
     position: absolute;
     top: 56px;
     right: 56px;
     padding: 5px 7px;
+    outline: none;
+    border: none;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../Images/Logo.svg';
+import Button from './Button.js';
 
 function Header(){
     const containerStyle = {
@@ -17,10 +18,24 @@ function Header(){
         width: "96px",
     };
 
+    const buttonStyle = {
+        position: "absolute",
+        right: '10%',
+        top: '0.5vh',
+    };
+
+    const containerMax = {
+        maxwidth: '1400px',
+        minwidth: '1120px'
+    }
+
 
     return (
         <div style={containerStyle}>
-            <img style={imageStyle} src={logo} alt="Logo da formula 1"/>
+                <img style={imageStyle} src={logo} alt="Logo da formula 1"/>
+                <div style={buttonStyle}>
+                    <Button variable="default" text="Sair" onClick="/"/>
+            </div>
         </div>
     );
 }

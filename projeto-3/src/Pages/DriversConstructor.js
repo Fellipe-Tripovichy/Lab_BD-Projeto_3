@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ResultsAdmin.css';
+import './DriversConstructor.css';
 import '../Fonts.css';
 
 import createAxiosInstance from '../Services/apiLogged.js';
@@ -15,16 +15,16 @@ function ResultsAdmin() {
   const instance = createAxiosInstance(token);
 
   const columns = [
-    {label: "Status", dataKey: "status"},
-    {label: "Contagem", dataKey: "contagem"},
+    {label: "Piloto", dataKey: "piloto"},
+    {label: "Vitorias", dataKey: "vitorias"},
   ];
 
   const [formattedData, setFormattedData] = useState([]);
 
   const formatTableData = (response) => {
     const data = response.data.map(item => ({
-      status: item.status,
-      contagem: item.quantity
+        piloto: item.driver,
+        vitorias: item.victories
     }));
     setFormattedData(data);
   }
@@ -32,7 +32,11 @@ function ResultsAdmin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await instance.get('/admin/resultByStatus');
+        const response = await instance.get('/escuderia/driverAndVictories',{
+            params: {
+                constructorId: localStorage.getItem('idEscuderia'),
+            }
+        });
         formatTableData(response);
         console.log(response);
       } catch (error) {
@@ -49,9 +53,9 @@ function ResultsAdmin() {
       <Header />
       <div className="AllContainer">
         <div className="ScreenContainer">
-          <div className="TitleContainer">
-            <LinkButton text="VOLTAR PARA OVERVIEW" path="/HomeAdmin"/>
-            <h1 className="h1">Resultados</h1>
+          <div className="aContainer">
+            <LinkButton text="VOLTAR PARA OVERVIEW" path="/HomeConstructor"/>
+            <h1 className="h1">Pilotos</h1>
           </div>
           <div className="ContentContainer">
             <Table columns={columns} data={formattedData}/>
